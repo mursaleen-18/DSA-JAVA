@@ -1,49 +1,48 @@
-
+/**
+ * Program demonstrating function to print prime numbers in a range
+ * Shows how to create and use a function to print prime numbers
+ */
 public class primeNums {
-
-    // Function to check if a number is prime
-    static boolean isPrime(int n) {
-
-        if (n <= 1)
-            return false;
-        for (int i = 2; i < Math.sqrt(n); i++) {
-            if (n % i == 0)
+    /**
+     * Checks if a given number is prime
+     * param n number to check
+     * return true if number is prime, false otherwise
+     */
+    public static boolean isPrime(int n) {
+        // 2 is the only even prime number
+        if (n == 2) {
+            return true;
+        }
+        
+        // Check if number is divisible by any number from 2 to n-1
+        for (int i = 2; i <= n - 1; i++) {
+            if (n % i == 0) {
                 return false;
+            }
         }
         return true;
     }
 
-    // Function to find all prime numbers in the range [m,
-    // n]
-    static int[] primeRange(int m, int n) {
-
-        // Temporary array to store prime numbers
-        int[] temp = new int[n - m + 1];
-        int index = 0;
-
-        // Iterate over each number in the range [m, n]
-        for (int i = m; i <= n; i++) {
-
-            // Check if the current number is prime
-            if (isPrime(i))
-                temp[index++] = i;
+    /**
+     * Prints all prime numbers in a given range
+     * param n upper limit of the range (inclusive)
+     */
+    public static void primesInRange(int n) {
+        for (int i = 2; i <= n; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
         }
-
-        // Copy the prime numbers into a result array of
-        // correct size
-        int[] result = new int[index];
-        System.arraycopy(temp, 0, result, 0, index);
-        return result;
+        System.out.println();
     }
 
+    /**
+     * Main method - entry point of the program
+     * Demonstrates printing prime numbers in a range
+     * param args command line arguments (not used in this program)
+     */
     public static void main(String[] args) {
-
-        int m = 1, n = 100;
-
-        int[] ans = primeRange(m, n);
-
-        for (int i : ans)
-            System.out.print(i + " ");
+        // Print all prime numbers from 2 to 20
+        primesInRange(20);
     }
-
 }

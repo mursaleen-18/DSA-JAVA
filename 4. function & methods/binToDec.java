@@ -1,23 +1,33 @@
+/**
+ * Program demonstrating function to convert binary number to decimal
+ * Shows how to create and use a function for number system conversion
+ */
 public class binToDec {
-
-    public static void binDec(int binNum) {
-        int target = binNum;
+    /**
+     * Converts a binary number to decimal
+     * param binNum binary number to convert
+     * return decimal equivalent of the binary number
+     */
+    public static int binToDec(int binNum) {
         int pow = 0;
         int decNum = 0;
-
+        
         while (binNum > 0) {
-            // the logic to get the last digit.
             int lastDigit = binNum % 10;
-            decNum = decNum + (int) (lastDigit * Math.pow(2, pow));
-
+            decNum = decNum + (lastDigit * (int) Math.pow(2, pow));
             pow++;
-            // now erase the last digit.
             binNum = binNum / 10;
         }
-        System.out.println("decimal of " + target + " = " + decNum);
+        return decNum;
     }
 
+    /**
+     * Main method - entry point of the program
+     * Demonstrates binary to decimal conversion
+     * param args command line arguments (not used in this program)
+     */
     public static void main(String[] args) {
-        binDec(1000);
+        // Convert binary number 101 to decimal
+        System.out.println(binToDec(101));
     }
 }

@@ -1,17 +1,29 @@
+/**
+ * Program demonstrating function to calculate factorial
+ * Shows how to create and use a function with a single parameter
+ */
 public class Fact {
 
-    public static int fact(int n) {
-        int fact = 1;
-
+    /**
+     * Calculates factorial of a given number
+     * param n number to calculate factorial for
+     * return factorial of n as integer
+     */
+    public static int factorial(int n) {
+        int f = 1;
         for (int i = 1; i <= n; i++) {
-            fact *= i;
+            f = f * i;
         }
-        return fact;
+        return f;
     }
 
+    /**
+     * Main method - entry point of the program
+     * Demonstrates factorial calculation using a function
+     * param args command line arguments (not used in this program)
+     */
     public static void main(String[] args) {
-        int n = 6;
-        int f = fact(n);
-        System.out.println("factorial of " + n + " is : " + f);
+        // Calculate and print factorial of 5
+        System.out.println(factorial(5));
     }
 }

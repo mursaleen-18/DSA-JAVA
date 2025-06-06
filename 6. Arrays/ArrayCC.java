@@ -1,7 +1,15 @@
 import java.util.Scanner;
 
+/**
+ * Program demonstrating basic array operations in Java
+ * Shows how to declare, initialize, and access array elements
+ */
 public class ArrayCC {
-
+    /**
+     * Main method - entry point of the program
+     * Demonstrates array declaration, initialization, and access
+     * param args command line arguments (not used in this program)
+     */
     public static void main(String[] args) {
         int marks[] = new int[100];
 
